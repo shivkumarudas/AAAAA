@@ -16,7 +16,7 @@ export class VenueController {
     this.container.innerHTML = `
       <div class="venue-section-wrapper">
         <div class="section-meta-header">
-          <span class="section-tag mono">(06) Venue & Wayfinding</span>
+          <span class="section-tag mono">VENUE &amp; WAYFINDING</span>
           <h2 class="section-headline">Seasons 24, Wagholi. Your conference coordinates.</h2>
           <p class="section-sub">
             All keynotes, breakout tracks, hackathon showcases, and sponsor expos take place under one roof on Pune-Ahmednagar Highway, Wagholi, Pune.
@@ -44,41 +44,49 @@ export class VenueController {
               </div>
             </div>
 
-            <!-- Transit Guide -->
+            <!-- Transit Guide with Dedicated Pune Metro & PMPML Bus Dossiers -->
             <div class="venue-transit-section">
-              <span class="transit-hdr">HOW TO REACH SEASONS 24:</span>
+              <span class="transit-hdr">HOW TO REACH SEASONS 24 // PUNE TRANSIT:</span>
 
-              <div class="transit-item">
-                <span class="tr-badge">[RAIL]</span>
+              <!-- PUNE METRO AQUA LINE DOSSIER -->
+              <div class="transit-item transit-item-highlight metro-card-highlight">
+                <div class="tr-badge-wrap">
+                  <span class="tr-badge badge-metro">[METRO]</span>
+                  <span class="metro-line-tag">AQUA LINE 2</span>
+                </div>
                 <div class="tr-body">
-                  <strong>From Pune Railway Station (15 km / 35-45 mins):</strong>
-                  <p>Direct PMT City Buses (Route 158, 159, 165) depart from Pune Station Bus Stand directly towards Wagholi. Direct Cabs / Autos available 24/7.</p>
+                  <strong>Via Pune Metro (Aqua Line ➔ Ramwadi Terminal):</strong>
+                  <p>
+                    Take the Metro to <strong>Ramwadi Metro Station</strong> (terminal station on Nagar Road).
+                    From Ramwadi, board a 12-minute direct feeder bus or share auto straight to <strong>Seasons 24 Wagholi</strong>.
+                  </p>
+                  <div class="tr-meta-pills">
+                    <span class="pill-mini">TRANSIT TIME: 25 MINS</span>
+                    <span class="pill-mini">FARE: ₹20-30</span>
+                    <span class="pill-mini">FEEDER: EVERY 5 MINS</span>
+                  </div>
                 </div>
               </div>
 
-              <div class="transit-item">
-                <span class="tr-badge">[AIR]</span>
+              <!-- PMPML PUNE CITY BUS DOSSIER -->
+              <div class="transit-item transit-item-highlight pmpml-card-highlight">
+                <div class="tr-badge-wrap">
+                  <span class="tr-badge badge-pmpml">[PMPML BUS]</span>
+                  <span class="pmpml-line-tag">PUNE CITY EXPRESS</span>
+                </div>
                 <div class="tr-body">
-                  <strong>From Pune International Airport - PNQ (11 km / 25-30 mins):</strong>
-                  <p>Quick ride via Viman Nagar & Kharadi bypass straight onto Nagar Road into Wagholi.</p>
+                  <strong>Direct PMPML City Buses (Routes 158, 159, 165):</strong>
+                  <p>
+                    Frequent AC Electric &amp; CNG buses run directly from <strong>Pune Railway Station</strong> and <strong>Swargate</strong> along Nagar Road, stopping right outside <strong>Seasons 24 Bus Stop / Wagheshwar Temple</strong>.
+                  </p>
+                  <div class="tr-meta-pills">
+                    <span class="pill-mini">ROUTE 158: PUNE STN ⇄ WAGHOLI</span>
+                    <span class="pill-mini">ROUTE 165: SWARGATE ⇄ WAGHOLI</span>
+                    <span class="pill-mini">FREQ: 8-10 MINS</span>
+                  </div>
                 </div>
               </div>
 
-              <div class="transit-item">
-                <span class="tr-badge">[METRO]</span>
-                <div class="tr-body">
-                  <strong>Via Pune Metro (Aqua Line 2):</strong>
-                  <p>Ride Metro to <strong>Ramwadi Metro Station</strong> (terminal station), then take a 12-minute feeder bus or auto down Nagar Road to Seasons 24.</p>
-                </div>
-              </div>
-
-              <div class="transit-item">
-                <span class="tr-badge">[PARK]</span>
-                <div class="tr-body">
-                  <strong>On-Site Parking & Security:</strong>
-                  <p>Dedicated on-site parking available for both two-wheelers and four-wheelers.</p>
-                </div>
-              </div>
             </div>
 
             <!-- External Navigation Action -->
@@ -91,11 +99,6 @@ export class VenueController {
                 id="btn-open-maps">
                 OPEN IN GOOGLE MAPS [EXT ->]
               </a>
-              <button 
-                class="btn-brutalist btn-secondary w-full"
-                id="btn-copy-address">
-                [COPY FULL VENUE ADDRESS]
-              </button>
             </div>
             <div id="copy-address-status" class="copy-status-text" style="display: none;"></div>
           </div>
@@ -236,11 +239,68 @@ export class VenueController {
                       <!-- Inner Highway Centerline -->
                       <path 
                         d="M 20,370 C 160,340 280,305 400,255 C 520,205 640,180 780,160" 
-                        fill="none" 
+                        fill="none 
                         stroke="#ECE6D8" 
                         stroke-width="1.8" 
                         stroke-dasharray="8 6" 
                         stroke-linecap="butt" />
+
+                      <!-- PUNE METRO AQUA LINE VIADUCT (RAMWADI TO NAGAR RD CORRIDOR) -->
+                      <g class="radar-metro-network">
+                        <!-- Elevated Viaduct Track line -->
+                        <path 
+                          d="M 20,320 C 110,290 190,250 280,205" 
+                          fill="none" 
+                          stroke="#7B2CBF" 
+                          stroke-width="4.5" 
+                          stroke-dasharray="6 3" 
+                          opacity="0.9" />
+                        <path 
+                          d="M 20,320 C 110,290 190,250 280,205" 
+                          fill="none" 
+                          stroke="#00B4D8" 
+                          stroke-width="1.5" />
+
+                        <!-- Ramwadi Metro Station Marker Node -->
+                        <g transform="translate(60, 310)">
+                          <circle cx="0" cy="0" r="5" fill="#7B2CBF" stroke="#FFFFFF" stroke-width="1.8" />
+                          <circle cx="0" cy="0" r="2" fill="#00B4D8" />
+                          <!-- Callout Tag -->
+                          <rect x="8" y="-12" width="130" height="18" fill="#FFFFFF" stroke="#7B2CBF" stroke-width="1.2" />
+                          <text x="14" y="0" font-family="Space Mono, monospace" font-size="7" font-weight="900" fill="#7B2CBF">
+                            [RAMWADI METRO TERMINAL]
+                          </text>
+                        </g>
+
+                        <!-- Animated Pune Metro Train Capsule on Radar Track -->
+                        <g class="radar-metro-capsule">
+                          <rect x="-16" y="-6" width="32" height="12" rx="2" fill="#FFFFFF" stroke="#7B2CBF" stroke-width="1.5" />
+                          <rect x="-16" y="-1" width="32" height="3" fill="#00B4D8" />
+                          <circle cx="12" cy="0" r="1.8" fill="#FFF200" />
+                          <text x="0" y="3" font-family="Space Mono, monospace" font-size="5" font-weight="900" fill="#010101" text-anchor="middle">METRO</text>
+                        </g>
+                      </g>
+
+                      <!-- ANIMATED PMPML BUS RUNNING ON NAGAR ROAD -->
+                      <g class="radar-pmpml-network">
+                        <!-- Seasons 24 Bus Stop Node on Highway -->
+                        <g transform="translate(390, 268)">
+                          <circle cx="0" cy="0" r="4.5" fill="#00875A" stroke="#FFFFFF" stroke-width="1.8" />
+                          <rect x="8" y="-10" width="136" height="16" fill="#FFFFFF" stroke="#00875A" stroke-width="1.2" />
+                          <text x="14" y="1" font-family="Space Mono, monospace" font-size="6.5" font-weight="900" fill="#00875A">
+                            [SEASONS 24 BUS STOP - 158]
+                          </text>
+                        </g>
+
+                        <!-- Animated PMPML Bus Capsule cruising along highway -->
+                        <g class="radar-pmpml-capsule">
+                          <rect x="-14" y="-6" width="28" height="12" rx="2" fill="#00875A" stroke="#010101" stroke-width="1.2" />
+                          <rect x="-14" y="-6" width="28" height="4" fill="#FFFFFF" />
+                          <rect x="-14" y="-2" width="28" height="1" fill="#FF9900" />
+                          <circle cx="10" cy="1" r="1.8" fill="#FFF200" />
+                          <text x="-1" y="2.5" font-family="Space Mono, monospace" font-size="4.5" font-weight="900" fill="#FFFFFF" text-anchor="middle">PMPML</text>
+                        </g>
+                      </g>
 
                       <!-- Highway Directional Labels -->
                       <g font-family="Space Mono, monospace" font-size="9" font-weight="700" fill="#010101">

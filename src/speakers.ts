@@ -3,8 +3,6 @@ import { sound } from './audio';
 export interface SpeakerSession {
   id: string;
   name: string;
-  photoUrl: string;
-  linkedinUrl: string;
   badge: string;
   role: string;
   affiliation: string;
@@ -20,11 +18,9 @@ export interface SpeakerSession {
 export const SESSIONS_DATA: SpeakerSession[] = [
   {
     id: 'spk-01',
-    name: 'Dr. Elena Vance',
-    photoUrl: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=800&auto=format&fit=crop&q=80',
-    linkedinUrl: 'https://linkedin.com/in/aws-community-pune',
+    name: 'Keynote Speaker 01',
     badge: 'AWS LEADER',
-    role: 'Principal Solutions Architect',
+    role: 'Principal Solutions Architect & Cloud Strategist',
     affiliation: 'Amazon Web Services India',
     topic: 'Opening Keynote: Cloud Evolution & The Student Builder Era',
     time: '10:00 - 10:45 AM IST',
@@ -36,9 +32,21 @@ export const SESSIONS_DATA: SpeakerSession[] = [
   },
   {
     id: 'spk-02',
-    name: 'Marcus Chen',
-    photoUrl: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=800&auto=format&fit=crop&q=80',
-    linkedinUrl: 'https://linkedin.com/in/aws-community-pune',
+    name: 'AI Systems Practitioner',
+    badge: 'AI SPECIALIST',
+    role: 'Head of Applied AI & LLM Systems',
+    affiliation: 'Applied Generative AI Labs',
+    topic: 'Beyond Chatbots: Engineering Production AI Agents & LLM RAG',
+    time: '10:45 - 11:30 AM IST',
+    track: 'GenAI',
+    location: 'MAIN AUDITORIUM (HALL 1)',
+    description: 'End-to-end hands-on demonstration constructing multi-agent architectures, enterprise RAG, and foundation model tooling with Amazon Bedrock.',
+    tags: ['Amazon Bedrock', 'Generative AI', 'AI Agents', 'RAG'],
+    slotId: 'slot-05'
+  },
+  {
+    id: 'spk-03',
+    name: 'Serverless Cloud Specialist',
     badge: 'AWS COMMUNITY HERO',
     role: 'Senior Serverless Specialist',
     affiliation: 'Serverless Labs // Pune UG',
@@ -51,26 +59,8 @@ export const SESSIONS_DATA: SpeakerSession[] = [
     slotId: 'slot-08'
   },
   {
-    id: 'spk-03',
-    name: 'Aria Thorne',
-    photoUrl: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=800&auto=format&fit=crop&q=80',
-    linkedinUrl: 'https://linkedin.com/in/aws-community-pune',
-    badge: 'AI SPECIALIST',
-    role: 'Head of Applied AI & LLM Systems',
-    affiliation: 'Cognitive Cloud Systems',
-    topic: 'Beyond Chatbots: Engineering Production AI Agents & LLM RAG',
-    time: '10:45 - 11:30 AM IST',
-    track: 'GenAI',
-    location: 'MAIN AUDITORIUM (HALL 1)',
-    description: 'End-to-end hands-on demonstration constructing multi-agent architectures, enterprise RAG, and foundation model tooling with Amazon Bedrock.',
-    tags: ['Amazon Bedrock', 'Generative AI', 'AI Agents', 'RAG'],
-    slotId: 'slot-05'
-  },
-  {
     id: 'spk-04',
-    name: 'Rohan Kulkarni',
-    photoUrl: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=800&auto=format&fit=crop&q=80',
-    linkedinUrl: 'https://linkedin.com/in/aws-community-pune',
+    name: 'DevOps & Platform Lead',
     badge: 'PLATFORM LEAD',
     role: 'Lead Platform Engineer & SRE',
     affiliation: 'HyperScale Cloud Pune',
@@ -84,9 +74,7 @@ export const SESSIONS_DATA: SpeakerSession[] = [
   },
   {
     id: 'spk-05',
-    name: 'Priya Sharma',
-    photoUrl: 'https://images.unsplash.com/photo-1580489944761-15a19d654956?w=800&auto=format&fit=crop&q=80',
-    linkedinUrl: 'https://linkedin.com/in/aws-community-pune',
+    name: 'Cloud Security Architect',
     badge: 'SECURITY CISO',
     role: 'Chief Information Security Officer',
     affiliation: 'CyberShield Pune Enclave',
@@ -100,9 +88,7 @@ export const SESSIONS_DATA: SpeakerSession[] = [
   },
   {
     id: 'spk-06',
-    name: 'Vikram Joshi',
-    photoUrl: 'https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=800&auto=format&fit=crop&q=80',
-    linkedinUrl: 'https://linkedin.com/in/aws-community-pune',
+    name: 'SRE & Reliability Lead',
     badge: 'COMMUNITY BUILDER',
     role: 'AWS Community Builder & SRE',
     affiliation: 'OpenCloud Collective',
@@ -113,58 +99,72 @@ export const SESSIONS_DATA: SpeakerSession[] = [
     description: 'The end-to-end playbook for production reliability: continuous delivery pipelines, real-time observability with OpenTelemetry and Amazon CloudWatch, and resilience engineering.',
     tags: ['CI/CD', 'OpenTelemetry', 'CloudWatch', 'SRE'],
     slotId: 'slot-13'
+  },
+  {
+    id: 'spk-07',
+    name: 'Data & Analytics Architect',
+    badge: 'DATA & AI LEAD',
+    role: 'Lead Data & Distributed Systems Architect',
+    affiliation: 'Enterprise Cloud Intelligence',
+    topic: 'Petabyte-Scale Streaming & Analytics on Amazon Redshift Serverless',
+    time: '01:45 - 02:15 PM IST',
+    track: 'Architecture',
+    location: 'MAIN AUDITORIUM (HALL 1)',
+    description: 'Architecting modern petabyte-scale data lakes, streaming ingestion with Amazon Kinesis, and unified analytics powered by generative business intelligence.',
+    tags: ['Amazon Redshift', 'Kinesis', 'Data Lakes', 'Generative BI'],
+    slotId: 'slot-09'
+  },
+  {
+    id: 'spk-08',
+    name: 'Closing Keynote Speaker',
+    badge: 'KEYNOTE PIONEER',
+    role: 'Community Leader & AWS Ambassador',
+    affiliation: 'Global AWS Builder Network',
+    topic: 'Valedictory Keynote: Scaling Student Builders into Global Cloud Leaders',
+    time: '04:45 - 05:15 PM IST',
+    track: 'Community',
+    location: 'MAIN AUDITORIUM (HALL 1)',
+    description: 'Inspiring closing keynote exploring community-led innovation, open-source cloud projects, building generational impact, and the path forward for Pune builders.',
+    tags: ['Community', 'Cloud Leadership', 'Global Scale', 'Valedictory'],
+    slotId: 'slot-14'
   }
 ];
 
 export class SpeakersController {
   private container: HTMLElement;
-  private currentTrackFilter: string = 'ALL';
 
   constructor(container: HTMLElement) {
     this.container = container;
     this.render();
   }
 
-  private filterSessions(): SpeakerSession[] {
-    if (this.currentTrackFilter === 'ALL') {
-      return SESSIONS_DATA;
-    }
-    return SESSIONS_DATA.filter(s => s.track.toUpperCase() === this.currentTrackFilter.toUpperCase());
-  }
-
   private render() {
-    const sessions = this.filterSessions();
-    const tracks = ['ALL', 'GENAI', 'SERVERLESS', 'ARCHITECTURE', 'DEVOPS', 'SECURITY', 'COMMUNITY'];
-
     this.container.innerHTML = `
       <div class="speakers-section-wrapper">
         <div class="section-meta-header">
-          <span class="section-tag mono">(02) // FEATURED KEYNOTES & SPEAKERS</span>
+          <span class="section-tag mono">FEATURED KEYNOTES &amp; SPEAKERS</span>
           <h2 class="section-headline">THE ARCHITECTS & VISIONARIES.</h2>
           <p class="section-sub">
-            Confirmed keynote leaders, AWS heroes, and technical specialists delivering production cloud architectures on 27 December 2026 at Seasons 24, Wagholi. One unified stage.
+            8 confirmed keynote leaders, AWS heroes, and technical specialists delivering production cloud architectures on 27 December 2026 at Seasons 24, Wagholi. One unified stage.
           </p>
         </div>
 
-        <!-- Track Filter Bar -->
-        <div class="tracks-filter-bar mono" role="tablist">
-          <span class="filter-label">FILTER TRACK:</span>
-          ${tracks.map(t => `
-            <button 
-              class="track-filter-btn ${this.currentTrackFilter === t ? 'is-active' : ''}" 
-              data-track="${t}">
-              ${t}
-            </button>
-          `).join('')}
-        </div>
-
-        <!-- Speaker Cards Grid (Spacious & Minimal) -->
+        <!-- Speaker Cards Grid (Total 8 Speakers with Mystery ? Reveal Frame) -->
         <div class="speakers-grid">
-          ${sessions.map(s => `
+          ${SESSIONS_DATA.map(s => `
             <div class="speaker-card" id="card-${s.id}">
-              <!-- Framed Photo Box -->
-              <div class="speaker-photo-frame">
-                <img src="${s.photoUrl}" alt="${s.name}" class="speaker-photo-img" loading="lazy" />
+              <!-- Mystery ? Placeholder Frame (Revealing Later) -->
+              <div class="speaker-photo-frame speaker-mystery-frame" title="Speaker reveal dropping soon!">
+                <div class="mystery-avatar-container">
+                  <div class="mystery-cyber-grid"></div>
+                  <div class="mystery-qmark-wrap">
+                    <span class="mystery-qmark">?</span>
+                  </div>
+                  <div class="mystery-reveal-badge mono">
+                    <span class="reveal-beacon">●</span>
+                    <span>TO BE REVEALED</span>
+                  </div>
+                </div>
                 <span class="speaker-track-tag mono">[${s.track.toUpperCase()}]</span>
               </div>
 
@@ -172,9 +172,7 @@ export class SpeakersController {
               <div class="speaker-content">
                 <div class="speaker-meta-top">
                   <h3 class="speaker-name">
-                    <a href="${s.linkedinUrl}" class="speaker-name-link" target="_blank" rel="noopener noreferrer" title="View LinkedIn Profile">
-                      ${s.name}
-                    </a>
+                    ${s.name}
                   </h3>
                   <span class="speaker-affiliation mono">${s.affiliation}</span>
                 </div>
@@ -193,19 +191,6 @@ export class SpeakersController {
   }
 
   private attachEvents() {
-    // Track filters
-    const filterBtns = this.container.querySelectorAll<HTMLButtonElement>('.track-filter-btn');
-    filterBtns.forEach(btn => {
-      btn.addEventListener('click', () => {
-        const track = btn.getAttribute('data-track');
-        if (track && track !== this.currentTrackFilter) {
-          this.currentTrackFilter = track;
-          sound.playClick(680, 0.03);
-          this.render();
-        }
-      });
-    });
-
     // Jump to schedule slot
     const slotLinks = this.container.querySelectorAll<HTMLAnchorElement>('.speaker-topic-link');
     slotLinks.forEach(link => {
@@ -233,6 +218,14 @@ export class SpeakersController {
             targetSlot.classList.add('is-target-highlight');
           }
         }
+      });
+    });
+
+    // Mystery photo frame click sound & ripple
+    const frames = this.container.querySelectorAll('.speaker-mystery-frame');
+    frames.forEach(frame => {
+      frame.addEventListener('click', () => {
+        sound.playClick(850, 0.03);
       });
     });
   }

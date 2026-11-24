@@ -1,7 +1,10 @@
 import './style.css';
 import { sound } from './audio';
+import { themeController } from './theme';
 import { HeroVariableController } from './hero-variable';
 import { TickerController } from './ticker';
+import { TransitController } from './transit';
+import { BusTransitController } from './busTransit';
 import { OverviewController } from './overview';
 import { SpeakersController } from './speakers';
 import { ScheduleController } from './schedule';
@@ -11,6 +14,9 @@ import { VenueController } from './venue';
 import { EcosystemController } from './ecosystem';
 
 document.addEventListener('DOMContentLoaded', () => {
+  // 0. Initialize theme controls
+  themeController.init();
+
   // 1. Audio sound toggle
   const soundBtn = document.getElementById('sound-toggle-btn');
   const soundLabel = document.getElementById('sound-status-label');
@@ -32,6 +38,19 @@ document.addEventListener('DOMContentLoaded', () => {
       updateSoundUI();
     });
   }
+
+  // 1.5. PMPML Header Bus Horn interaction
+  const pmpmlHornBtn = document.getElementById('btn-pmpml-horn');
+  const pmpmlBusObj = document.getElementById('header-pmpml-bus');
+  const triggerBusHorn = () => {
+    sound.playBusHorn();
+    if (pmpmlBusObj) {
+      pmpmlBusObj.classList.add('is-honking');
+      setTimeout(() => pmpmlBusObj.classList.remove('is-honking'), 600);
+    }
+  };
+  if (pmpmlHornBtn) pmpmlHornBtn.addEventListener('click', triggerBusHorn);
+  if (pmpmlBusObj) pmpmlBusObj.addEventListener('click', triggerBusHorn);
 
   // 2. Live UTC & Local IST Clocks
   const updateClocks = () => {
@@ -96,6 +115,12 @@ document.addEventListener('DOMContentLoaded', () => {
     new TickerController(tickerEl);
   }
 
+  // 5.5. Initialize Pune City Transit Runway (Pune Metro & PMPML Expressway)
+  const transitEl = document.getElementById('pune-transit');
+  if (transitEl) {
+    new TransitController(transitEl);
+  }
+
   // 6. Initialize Event Overview, Countdown & Attendee Perks
   const overviewEl = document.getElementById('overview');
   if (overviewEl) {
@@ -138,6 +163,12 @@ document.addEventListener('DOMContentLoaded', () => {
     new EcosystemController(ecoEl);
   }
 
+  // 12.5. Initialize PMPML Pune City e-Bus Express Runway (Above Footer)
+  const busEl = document.getElementById('pune-bus');
+  if (busEl) {
+    new BusTransitController(busEl);
+  }
+
   // Header Get Pass Button triggers Passes Section
   const headerTrialBtn = document.getElementById('header-trial-trigger');
   const drawerTrialBtn = document.getElementById('drawer-trial-btn');
@@ -167,7 +198,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Smooth keyboard anchor scrolling
   document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
+    anchor.addEventListener('click', function (this: HTMLAnchorElement, e: Event) {
       const href = this.getAttribute('href');
       if (href && href.startsWith('#') && href.length > 1) {
         const target = document.querySelector(href);

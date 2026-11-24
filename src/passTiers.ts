@@ -10,7 +10,17 @@ export interface SinglePassDetails {
   venue: string;
   capacity: string;
   konfhubUrl: string;
+}
+
+export interface TicketTier {
+  id: string;
+  name: string;
+  price: string;
+  badge: string;
+  tagline: string;
+  isPopular?: boolean;
   inclusions: string[];
+  konfhubUrl: string;
 }
 
 export const OFFICIAL_PASS: SinglePassDetails = {
@@ -21,18 +31,62 @@ export const OFFICIAL_PASS: SinglePassDetails = {
   hours: '08:00 AM – 05:30 PM IST',
   venue: 'SEASONS 24, WAGHOLI, PUNE',
   capacity: '300 STUDENT BUILDERS',
-  konfhubUrl: 'https://konfhub.com/aws-scd-pune-2026',
-  inclusions: [
-    'Admission to all Keynotes, Technical Sessions & Panel Discussions',
-    'Exclusive AWS Swag & Developer Builder Kit',
-    'Hot morning breakfast, delicious buffet lunch & evening high-tea at Seasons 24',
-    'Official Credly digital attendee badge & verified participation credential',
-    'High-impact networking with student builders & cloud professionals',
-    'Reserved priority seating rows for professionals & invited delegates',
-    'Direct 1-on-1 mentorship & interaction with AWS Community Leaders',
-    'Full access to sponsor exhibits & interactive tech demos'
-  ]
+  konfhubUrl: 'https://konfhub.com/aws-scd-pune-2026'
 };
+
+export const TICKET_TIERS: TicketTier[] = [
+  {
+    id: 'tier-early',
+    name: 'Student Early Bird Pass',
+    price: '₹299',
+    badge: 'EARLY BIRD // STUDENT SPECIAL',
+    tagline: 'Complete all-day admission for enrolled college, diploma & polytechnic students.',
+    isPopular: true,
+    inclusions: [
+      'Full-Day In-Person Admission to all 8 Keynotes & 15 Sessions',
+      'Official Physical Laminate Pass & Woven AWS SBG Lanyard',
+      'Exclusive AWS SBG Developer Swag Kit, Stickers & Notebook',
+      'Hot Morning Breakfast, Delicious Buffet Lunch & Evening High-Tea',
+      'Verified Credly Digital Attendee Certificate & Credential',
+      'Hands-on Access to Sponsor Tech Demos & Expo Atrium'
+    ],
+    konfhubUrl: 'https://konfhub.com/aws-scd-pune-2026'
+  },
+  {
+    id: 'tier-regular',
+    name: 'Student Regular Pass',
+    price: '₹399',
+    badge: 'GENERAL ADMISSION',
+    tagline: 'Standard delegate admission for students post early-bird allocation.',
+    isPopular: false,
+    inclusions: [
+      'Full-Day In-Person Admission to all 8 Keynotes & AI Tracks',
+      'Official Physical Laminate Pass & Woven AWS SBG Lanyard',
+      'Complete AWS SBG Builder Swag Pack & Die-Cut Stickers',
+      'Hot Morning Breakfast, Delicious Buffet Lunch & Evening High-Tea',
+      'Verified Credly Digital Participation Credential',
+      'Networking Lounge & Student Community Showcase Access'
+    ],
+    konfhubUrl: 'https://konfhub.com/aws-scd-pune-2026'
+  },
+  {
+    id: 'tier-pro',
+    name: 'Professional Builder Pass',
+    price: '₹499',
+    badge: 'INDUSTRY & WORKING PROS',
+    tagline: 'Dedicated all-access admission for working engineers, alumni & industry leaders.',
+    isPopular: false,
+    inclusions: [
+      'Full-Day All-Access Admission with Fast-Track Gate Entry',
+      'Reserved Priority Seating Rows in Main Keynote Auditorium',
+      'Premium Developer Swag Kit & Executive Builder Goodies',
+      'Hot Breakfast, Executive Buffet Lunch & High-Tea Service',
+      'Verified Credly Professional Cloud Credential',
+      'Direct 1-on-1 Mentorship & Networking with Speakers'
+    ],
+    konfhubUrl: 'https://konfhub.com/aws-scd-pune-2026'
+  }
+];
 
 export class PassTiersController {
   private container: HTMLElement;
@@ -54,18 +108,16 @@ export class PassTiersController {
 
     this.container.innerHTML = `
       <div class="passes-section-wrapper">
-        <!-- Section Header -->
+        <!-- Section Header (Clean, No Numbering) -->
         <div class="section-meta-header">
-          <span class="section-tag mono">(04) // TICKETS & REGISTRATION</span>
+          <span class="section-tag mono">TICKETS &amp; REGISTRATION</span>
           <h2 class="section-headline">Official Admission Pass. Powered by KonfHub.</h2>
           <p class="section-sub">
             One single pass. All-inclusive in-person admission to all keynotes, technical sessions, and community networking at Seasons 24, Wagholi on 27 December 2026.
           </p>
         </div>
 
-
-
-        <!-- The Physical Perforated Ticket Stub Card -->
+        <!-- 1. The Physical Perforated Ticket Stub Card (Clean without admission privileges checklist) -->
         <div class="ticket-stub-wrapper">
           <div class="ticket-stub-card mono" id="ticket-stub-card">
             <!-- Main Ticket Body (Left) -->
@@ -88,7 +140,7 @@ export class PassTiersController {
                 </div>
               </div>
 
-              <!-- Event Parameters Matrix -->
+              <!-- Event Parameters Matrix (Exact match to official pass) -->
               <div class="ticket-parameters-matrix">
                 <div class="param-cell">
                   <span class="param-lbl">DATE:</span>
@@ -108,15 +160,7 @@ export class PassTiersController {
                 </div>
               </div>
 
-              <!-- Inclusions Checklist -->
-              <div class="ticket-inclusions-block">
-                <span class="inclusions-label">ADMISSION PRIVILEGES & INCLUSIONS:</span>
-                <ul class="inclusions-grid">
-                  ${pass.inclusions.map(inc => `<li>[OK] ${inc}</li>`).join('')}
-                </ul>
-              </div>
-
-              <!-- Action CTAs -->
+              <!-- Action CTAs inside pass -->
               <div class="ticket-actions-row">
                 <a 
                   href="${pass.konfhubUrl}" 
@@ -124,10 +168,10 @@ export class PassTiersController {
                   rel="noopener noreferrer" 
                   class="btn-brutalist btn-accent btn-ticket-konfhub"
                   id="btn-konfhub-direct-link">
-                  REGISTER PASS ON KONFHUB [EXTERNAL ->]
+                  REGISTER PASS ON KONFHUB [EXTERNAL &rarr;]
                 </a>
                 <a href="#pass-generator" class="btn-brutalist btn-secondary btn-ticket-badge">
-                  CUSTOMIZE YOUR BADGE FIRST [v]
+                  CUSTOMIZE YOUR BADGE FIRST [&darr;]
                 </a>
               </div>
             </div>
@@ -146,7 +190,7 @@ export class PassTiersController {
               </div>
               <div class="perforation-label mono">
                 <span class="label-txt">TEAR HERE</span>
-                <span class="label-drag-hint">[PULL v]</span>
+                <span class="label-drag-hint">[PULL &darr;]</span>
               </div>
               <div class="tear-hint-pill mono" id="tear-hint-pill">
                 [CLICK OR DRAG TO TEAR]
@@ -199,7 +243,7 @@ export class PassTiersController {
                 type="button" 
                 class="btn-brutalist btn-accent w-full text-center stub-cta-btn"
                 id="btn-stub-konfhub-link">
-                TEAR & REGISTER ->
+                TEAR &amp; REGISTER &rarr;
               </button>
             </div>
 
@@ -227,6 +271,78 @@ export class PassTiersController {
                 </a>
               </div>
             </div>
+          </div>
+        </div>
+
+        <!-- 2. Sub-Header Divider for Tickets & Price with Details -->
+        <div class="ticket-tiers-section-divider">
+          <div class="divider-line"></div>
+          <span class="divider-badge mono">✨ TICKETS &amp; PRICE WITH FULL DETAILS</span>
+          <div class="divider-line"></div>
+        </div>
+
+        <!-- 3. Ticket Tiers & Price with Details Grid (₹299, ₹399, ₹499) -->
+        <div class="ticket-tiers-grid">
+          ${TICKET_TIERS.map(tier => `
+            <div class="ticket-tier-card ${tier.isPopular ? 'is-featured-tier' : ''}" id="${tier.id}">
+              ${tier.isPopular ? `<div class="tier-popular-ribbon mono">★ MOST POPULAR</div>` : ''}
+              
+              <div class="tier-card-header">
+                <span class="tier-badge mono">${tier.badge}</span>
+                <div class="tier-price-row">
+                  <span class="tier-price">${tier.price}</span>
+                  <span class="tier-price-unit mono">/ DELEGATE</span>
+                </div>
+                <h3 class="tier-title">${tier.name}</h3>
+                <p class="tier-tagline">${tier.tagline}</p>
+              </div>
+
+              <!-- Tier Inclusions / Privileges List -->
+              <div class="tier-inclusions-wrap">
+                <span class="tier-inclusions-title mono">INCLUDED PRIVILEGES:</span>
+                <ul class="tier-inclusions-list">
+                  ${tier.inclusions.map(inc => `
+                    <li>
+                      <span class="inc-check">✓</span>
+                      <span class="inc-text">${inc}</span>
+                    </li>
+                  `).join('')}
+                </ul>
+              </div>
+
+              <!-- CTA Action -->
+              <div class="tier-cta-wrap">
+                <a 
+                  href="${tier.konfhubUrl}" 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  class="btn-modern ${tier.isPopular ? 'btn-glow-primary' : 'btn-glass-secondary'} w-full text-center btn-tier-claim"
+                  data-price="${tier.price}">
+                  <span>CLAIM PASS ON KONFHUB (${tier.price})</span>
+                  <span class="arr">&rarr;</span>
+                </a>
+              </div>
+            </div>
+          `).join('')}
+        </div>
+
+        <!-- 4. Event Parameter Coordinates Footnote Bar -->
+        <div class="ticket-meta-footer-bar mono">
+          <div class="meta-item">
+            <span class="meta-icon">📅</span>
+            <span>DATE: <strong>27 DEC 2026</strong></span>
+          </div>
+          <div class="meta-item">
+            <span class="meta-icon">⏰</span>
+            <span>HOURS: <strong>08:00 AM – 05:30 PM IST</strong></span>
+          </div>
+          <div class="meta-item">
+            <span class="meta-icon">📍</span>
+            <span>VENUE: <strong>SEASONS 24, WAGHOLI, PUNE</strong></span>
+          </div>
+          <div class="meta-item">
+            <span class="meta-icon">🔒</span>
+            <span>ENGINE: <strong>KONFHUB SECURE CHECKOUT</strong></span>
           </div>
         </div>
       </div>
@@ -262,6 +378,19 @@ export class PassTiersController {
         }
       });
     }
+
+    // Tier claim buttons audio & celebration
+    this.container.querySelectorAll<HTMLAnchorElement>('.btn-tier-claim').forEach(btn => {
+      btn.addEventListener('click', () => {
+        sound.playSuccess();
+        confetti({
+          particleCount: 60,
+          spread: 60,
+          origin: { y: 0.7 },
+          colors: ['#9333EA', '#FF9900', '#00D8F6', '#FFFFFF']
+        });
+      });
+    });
 
     // Auto-rejoin smoothly if user switches back to this tab from KonfHub
     document.addEventListener('visibilitychange', () => {
@@ -433,7 +562,7 @@ export class PassTiersController {
   }
 
   private clearAutoRejoin() {
-    if (this.autoRejoinTimeout) {
+    if (this.autoRejoinTimeout !== null) {
       window.clearTimeout(this.autoRejoinTimeout);
       this.autoRejoinTimeout = null;
     }
@@ -509,7 +638,7 @@ export class PassTiersController {
         const descEl = claimedReceipt.querySelector<HTMLElement>('.claimed-desc');
         if (descEl) {
           if (popupBlocked) {
-            descEl.textContent = 'Admission stub detached. Browser popup blocked; click the red button below to register:';
+            descEl.textContent = 'Admission stub detached. Browser popup blocked; click the button below to register:';
           } else {
             descEl.textContent = 'Delegate admission submitted. KonfHub registration opened in new tab...';
           }

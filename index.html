@@ -12,17 +12,56 @@
   <link rel="icon" type="image/svg+xml"
     href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' fill='%23010101'/><text x='16' y='24' font-family='sans-serif' font-weight='900' font-size='20' fill='%23FD0B03' text-anchor='middle'>A</text></svg>" />
 
-  <!-- Google Fonts: Roboto Flex (KS Elastik), Fraunces (KS Morrow), Recursive (KS Relay), Space Mono -->
+  <!-- Google Fonts: Inter, Plus Jakarta Sans, JetBrains Mono, Roboto Flex, Fraunces, Space Mono -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
-    href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT,WONK@0,9..144,100..900,0..100,0..1;1,9..144,100..900,0..100,0..1&family=Recursive:slnt,wght,CASL,CRSV,MONO@-15..0,300..1000,0..1,0..1,0..1&family=Roboto+Flex:opsz,slnt,wdth,wght,GRAD@8..144,-10..0,25..151,100..1000,-200..150&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&family=Roboto+Flex:opsz,wght@8..144,400..900&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap"
     rel="stylesheet">
 
   <link rel="stylesheet" href="/src/style.css" />
 </head>
 
 <body class="bg-warm-cream text-near-black">
+
+  <!-- Top Announcement Bar: Sliding Registration Ticker Slider -->
+  <div class="site-announcement-bar" id="site-announcement">
+    <div class="announcement-inner">
+      <div class="announcement-left-badge">
+        <span class="announcement-pulse-dot" aria-hidden="true"></span>
+        <span class="announcement-badge mono">REGISTRATIONS OPEN NOW</span>
+      </div>
+      <div class="announcement-slider-track-wrap" id="announcement-slider-wrap" title="Continuous Registration Stream - Hover to pause">
+        <div class="announcement-slider-track">
+          <span class="slider-msg">⚡ <strong>REGISTRATIONS ARE OPEN NOW!</strong> JOIN 1,200+ STUDENT BUILDERS AT AWS SCD 2026</span>
+          <span class="slider-sep">•</span>
+          <span class="slider-msg">📍 <strong>27 DEC 2026:</strong> SEASONS 24 BANQUET &amp; CONVENTIONS, WAGHOLI, PUNE</span>
+          <span class="slider-sep">•</span>
+          <span class="slider-msg">🎟️ <strong>ALL-ACCESS BUILDER PASS:</strong> 8 ARCHITECTURE KEYNOTES, 15 TECH SESSIONS &amp; HANDS-ON AI LABS</span>
+          <span class="slider-sep">•</span>
+          <span class="slider-msg">🎁 <strong>PERKS INCLUDED:</strong> OFFICIAL AWS SBG BUILDER SWAG, HOT BREAKFAST, BUFFET LUNCH &amp; HIGH-TEA</span>
+          <span class="slider-sep">•</span>
+          <span class="slider-msg">🔥 <strong>LIMITED SEATS:</strong> EARLY BIRD SLOTS FILLING RAPIDLY • SECURE YOUR PASS TODAY</span>
+          <span class="slider-sep">•</span>
+          <span class="slider-msg">⚡ <strong>REGISTRATIONS ARE OPEN NOW!</strong> JOIN 1,200+ STUDENT BUILDERS AT AWS SCD 2026</span>
+          <span class="slider-sep">•</span>
+          <span class="slider-msg">📍 <strong>27 DEC 2026:</strong> SEASONS 24 BANQUET &amp; CONVENTIONS, WAGHOLI, PUNE</span>
+          <span class="slider-sep">•</span>
+          <span class="slider-msg">🎟️ <strong>ALL-ACCESS BUILDER PASS:</strong> 8 ARCHITECTURE KEYNOTES, 15 TECH SESSIONS &amp; HANDS-ON AI LABS</span>
+          <span class="slider-sep">•</span>
+          <span class="slider-msg">🎁 <strong>PERKS INCLUDED:</strong> OFFICIAL AWS SBG BUILDER SWAG, HOT BREAKFAST, BUFFET LUNCH &amp; HIGH-TEA</span>
+          <span class="slider-sep">•</span>
+          <span class="slider-msg">🔥 <strong>LIMITED SEATS:</strong> EARLY BIRD SLOTS FILLING RAPIDLY • SECURE YOUR PASS TODAY</span>
+        </div>
+      </div>
+      <div class="announcement-actions">
+        <a href="#passes" class="announcement-btn">
+          <span>CLAIM PASS</span>
+          <span class="announcement-arrow">→</span>
+        </a>
+      </div>
+    </div>
+  </div>
 
   <!-- Header Navigation -->
   <header id="header" class="site-header">
@@ -31,28 +70,37 @@
         <a href="#hero" class="brand-link" aria-label="AWS Student Community Day 2026 Pune">
           <img src="./assets/aws-sbg-logo.svg" alt="AWS SBG Logo" class="header-sbg-logo" width="24" height="24" />
           <span class="brand-mark">AWS SCD 2026</span>
-          <span class="brand-collab-tag mono">PUNE BUILDERS</span>
+          <span class="brand-collab-tag mono">PUNE</span>
         </a>
         <span class="brand-badge mono">27 DEC 2026</span>
       </div>
 
       <!-- Desktop Navigation Links -->
-      <nav class="header-nav mono" aria-label="Primary Navigation">
-        <a href="#hero" class="nav-link scd-nav-link">[SCD 2026]</a>
+      <nav class="header-nav" aria-label="Primary Navigation">
         <a href="#overview" class="nav-link">OVERVIEW</a>
         <a href="#speakers" class="nav-link">KEYNOTES</a>
         <a href="#schedule" class="nav-link">SCHEDULE</a>
         <a href="#passes" class="nav-link">PASSES</a>
-        <a href="#pass-generator" class="nav-link">BADGE CREATOR</a>
+        <a href="#pass-generator" class="nav-link nav-link-badge">BADGE</a>
         <a href="#venue" class="nav-link">VENUE</a>
-        <a href="#ecosystem" class="nav-link">FAQ &amp; SPONSORS</a>
+        <a href="#pune-transit" class="nav-link nav-link-transit">TRANSIT</a>
+        <a href="#ecosystem" class="nav-link">FAQ</a>
       </nav>
 
-      <!-- Action Buttons -->
+      <!-- Action Buttons & Theme Switcher -->
       <div class="header-actions">
-        <button class="btn-trial-action mono" id="header-trial-trigger">
-          GET PASS ON KONFHUB ->
-        </button>
+        <!-- Modern Theme Switcher -->
+        <div class="theme-switch-cluster" title="Switch Theme">
+          <button class="theme-btn is-active" data-theme-btn="modern" title="Modern Light">LIGHT</button>
+          <button class="theme-btn" data-theme-btn="cyber" title="Obsidian Dark">DARK</button>
+          <button class="theme-btn" data-theme-btn="sunset" title="Pune Sunset">SUNSET</button>
+          <button class="theme-btn" data-theme-btn="kraft" title="Kraft Retro">KRAFT</button>
+        </div>
+
+        <a href="#passes" class="btn-header-cta" id="header-trial-trigger">
+          <span>GET PASS</span>
+          <span class="btn-arrow">→</span>
+        </a>
         <button class="btn-menu-drawer-toggle" id="menu-drawer-toggle" aria-label="Open Navigation Menu"
           aria-expanded="false">
           <span class="menu-bar"></span>
@@ -73,40 +121,56 @@
       </div>
       <div class="drawer-links-list">
         <a href="#hero" class="drawer-nav-item">
-          <span class="num">00</span>
-          <span class="name">OVERVIEW / MISSION CONTROL</span>
+          <span class="arr">→</span>
+          <span class="name">OVERVIEW &amp; MISSION CONTROL</span>
         </a>
         <a href="#overview" class="drawer-nav-item">
-          <span class="num">01</span>
-          <span class="name">EVENT OVERVIEW & PERKS</span>
+          <span class="arr">→</span>
+          <span class="name">EVENT OVERVIEW &amp; PERKS</span>
         </a>
         <a href="#speakers" class="drawer-nav-item">
-          <span class="num">02</span>
-          <span class="name">KEYNOTES & SPEAKER DOSSIERS</span>
+          <span class="arr">→</span>
+          <span class="name">KEYNOTES &amp; SPEAKER DOSSIERS</span>
         </a>
         <a href="#schedule" class="drawer-nav-item">
-          <span class="num">03</span>
-          <span class="name">08:00 AM – 05:30 PM SCHEDULE</span>
+          <span class="arr">→</span>
+          <span class="name">CONFERENCE TIMELINE &amp; SCHEDULE</span>
         </a>
         <a href="#passes" class="drawer-nav-item">
-          <span class="num">04</span>
-          <span class="name">OFFICIAL PASS & KONFHUB REGISTRATION</span>
+          <span class="arr">→</span>
+          <span class="name">TICKETS &amp; KONFHUB REGISTRATION</span>
         </a>
         <a href="#pass-generator" class="drawer-nav-item">
-          <span class="num">05</span>
-          <span class="name">INTERACTIVE BADGE CUSTOMIZER</span>
+          <span class="arr">→</span>
+          <span class="name">OFFICIAL BUILDER BADGE STUDIO</span>
         </a>
         <a href="#venue" class="drawer-nav-item">
-          <span class="num">06</span>
-          <span class="name">VENUE & TRANSIT (SEASONS 24)</span>
+          <span class="arr">→</span>
+          <span class="name">VENUE DOSSIER &amp; RADAR (SEASONS 24)</span>
+        </a>
+        <a href="#pune-transit" class="drawer-nav-item">
+          <span class="arr">→</span>
+          <span class="name">PUNE METRO AQUA LINE RUNWAY</span>
+        </a>
+        <a href="#pune-bus" class="drawer-nav-item">
+          <span class="arr">→</span>
+          <span class="name">PMPML PUNE CITY e-BUS RUNWAY</span>
         </a>
         <a href="#ecosystem" class="drawer-nav-item">
-          <span class="num">07</span>
-          <span class="name">PARTNERS & FAQ TERMINAL</span>
+          <span class="arr">→</span>
+          <span class="name">PARTNERS &amp; FAQ TERMINAL</span>
         </a>
-
       </div>
       <div class="drawer-footer">
+        <div class="drawer-theme-block">
+          <span class="drawer-theme-title">SELECT CANVAS THEME:</span>
+          <div class="theme-switch-cluster mono">
+            <button class="theme-btn" data-theme-btn="modern">IVORY</button>
+            <button class="theme-btn" data-theme-btn="cyber">DARK</button>
+            <button class="theme-btn" data-theme-btn="sunset">SUNSET</button>
+            <button class="theme-btn" data-theme-btn="kraft">KRAFT</button>
+          </div>
+        </div>
         <div class="drawer-specs">
           <div>CONFERENCE: AWS SCD BSIOTR 2026</div>
           <div>HOURS: 08:00 AM – 05:30 PM IST</div>
@@ -115,20 +179,47 @@
         <div class="drawer-socials-grid mono">
           <a href="https://www.linkedin.com/company/aws-student-builder-group-at-bsiotr/" target="_blank"
             rel="noopener noreferrer" class="drawer-social-btn">
+            <span class="drawer-social-icon linkedin">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="#0A66C2" aria-hidden="true">
+                <path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 10.9h2.82v8.37H6.46v-8.37M7.87 6.46a1.64 1.64 0 1 0 0 3.28 1.64 1.64 0 0 0 0-3.28z"/>
+              </svg>
+            </span>
             <span>LINKEDIN</span>
             <span class="arr">-></span>
           </a>
           <a href="https://www.instagram.com/awssbg.bsiotr?knvt=MXBxMWdkN3A0cDlkbQ==" target="_blank"
             rel="noopener noreferrer" class="drawer-social-btn">
+            <span class="drawer-social-icon instagram">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="url(#igGradDrawer)" aria-hidden="true">
+                <defs>
+                  <linearGradient id="igGradDrawer" x1="0%" y1="100%" x2="100%" y2="0%">
+                    <stop offset="0%" stop-color="#FFD600"/>
+                    <stop offset="50%" stop-color="#FF0069"/>
+                    <stop offset="100%" stop-color="#D300C5"/>
+                  </linearGradient>
+                </defs>
+                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+              </svg>
+            </span>
             <span>INSTAGRAM</span>
             <span class="arr">-></span>
           </a>
           <a href="https://www.meetup.com/aws-sbg-at-jspm-bsiotr-pune" target="_blank" rel="noopener noreferrer"
             class="drawer-social-btn">
+            <span class="drawer-social-icon meetup">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="#ED1C40" aria-hidden="true">
+                <path d="M7.78 12.87c-.55-.66-.88-1.5-.88-2.43 0-2.07 1.68-3.75 3.75-3.75 1.4 0 2.62.77 3.25 1.9.63-1.13 1.85-1.9 3.25-1.9 2.07 0 3.75 1.68 3.75 3.75 0 .93-.33 1.77-.88 2.43.34.47.54 1.05.54 1.67 0 1.52-1.23 2.75-2.75 2.75-.84 0-1.59-.38-2.09-.97-.5.59-1.25.97-2.09.97-.84 0-1.59-.38-2.09-.97-.5.59-1.25.97-2.09.97-1.52 0-2.75-1.23-2.75-2.75 0-.62.2-1.2.54-1.67z"/>
+              </svg>
+            </span>
             <span>MEETUP</span>
             <span class="arr">-></span>
           </a>
           <a href="mailto:awssbgbsiotr@gmail.com" class="drawer-social-btn">
+            <span class="drawer-social-icon email">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="#EA4335" aria-hidden="true">
+                <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+              </svg>
+            </span>
             <span>EMAIL</span>
             <span class="arr">-></span>
           </a>
@@ -138,22 +229,9 @@
   </div>
 
   <main>
-    <!-- 02. Hero Banner -->
+    <!-- Hero Banner (Modernized Cloud Builders Edition) -->
     <section id="hero" class="hero-section">
-      <!-- Mobile Hero Telemetry Header (High-Craft Mobile HUD) -->
-      <div class="hero-mobile-hud mono" aria-label="Event Telemetry">
-        <div class="hud-status-chip">
-          <span class="hud-pulse-blip">●</span>
-          <span>REGISTRATIONS LIVE // SEASONS 24</span>
-        </div>
-        <div class="hud-tags-row">
-          <span class="hud-tag">[PUNE, MH]</span>
-          <span class="hud-tag">[27 DEC 2026]</span>
-          <span class="hud-tag hud-tag-accent">[AWS SBG BSIOTR]</span>
-        </div>
-      </div>
-
-      <!-- Giant Viewport-responsive Brand Wordmark -->
+      <!-- Giant Viewport-responsive Brand Wordmark (Interactive Fluid Variable Typography) -->
       <div class="hero-wordmark-container">
         <h1 class="hero-wordmark-title" aria-label="AWS SCD 2026">
           <!-- Populated by HeroVariableController into interactive char spans -->
@@ -161,24 +239,42 @@
         </h1>
       </div>
 
-      <!-- Hero Tagline and Interactive Axis Scrubber -->
+      <!-- Hero Tagline, Modern CTAs & Quick Metrics Grid -->
       <div class="hero-bottom-grid">
         <div class="hero-tagline-col">
-          <p class="hero-tagline">
-            AGENDA // <span class="text-vermilion">Our roadmap for student builders.</span>
+          <h2 class="hero-subheadline">
+            Scale From Localhost to <span class="gradient-text">Global Cloud Intelligence.</span>
+          </h2>
+          <p class="scd-hero-subline">
+            8 architecture keynotes &amp; technical talks, serverless deep dives, and hands-on generative AI sessions.
+            Engineered for 300+ student builders gathering at Seasons 24, Wagholi on 27 December 2026. One unified stage. Zero track conflicts.
           </p>
-          <p class="scd-hero-subline mono">
-            7 architecture keynotes &amp; technical talks, serverless deep dives, and hands-on generative AI sessions.
-            Engineered for 300+ student builders scaling from localhost to global cloud intelligence on 27 December
-            2026.
-          </p>
+
           <div class="hero-ctas">
-            <a href="#schedule" class="btn-brutalist btn-accent">
-              Explore Schedule & Tracks [v]
+            <a href="#passes" class="btn-modern btn-glow-primary">
+              <span>GET PASS ON KONFHUB</span>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
             </a>
-            <a href="#passes" class="btn-brutalist btn-secondary">
-              Register Now ->
-            </a>
+          </div>
+
+          <!-- Hero Live Stat Chips -->
+          <div class="hero-stats-row">
+            <div class="hero-stat-card">
+              <span class="stat-num">300+</span>
+              <span class="stat-lbl">Student Builders</span>
+            </div>
+            <div class="hero-stat-card">
+              <span class="stat-num">8</span>
+              <span class="stat-lbl">Tech Keynotes</span>
+            </div>
+            <div class="hero-stat-card">
+              <span class="stat-num">1</span>
+              <span class="stat-lbl">Unified Stage</span>
+            </div>
+            <div class="hero-stat-card">
+              <span class="stat-num">8+</span>
+              <span class="stat-lbl">Hours Immersion</span>
+            </div>
           </div>
         </div>
       </div>
@@ -212,9 +308,14 @@
     <!-- 07. Venue & Transit Guide: Seasons 24 Wagholi -->
     <section id="venue" class="venue-section"></section>
 
+    <!-- 07.5. Pune City Transit Runway: Pune Metro & PMPML Bus Interactive Expressway -->
+    <section id="pune-transit" class="transit-expressway-section" aria-label="Pune City Transit Runway"></section>
+
     <!-- 08. AWS SCD 2026 Ecosystem, Sponsors & FAQ Terminal -->
     <section id="ecosystem" class="ecosystem-section"></section>
 
+    <!-- 09. PMPML City e-Bus Express Runway: Direct City Transit to Seasons 24, Wagholi -->
+    <section id="pune-bus" class="transit-expressway-section transit-bus-section" aria-label="PMPML Pune City Bus Runway"></section>
 
   </main>
 
@@ -234,41 +335,45 @@
         </div>
       </div>
 
-      <div class="footer-col col-links">
-        <h4 class="col-subtitle">COMMUNITY &amp; SOCIALS</h4>
-        <ul class="col-list">
-          <li><a href="https://www.linkedin.com/company/aws-student-builder-group-at-bsiotr/" target="_blank"
-              rel="noopener noreferrer">LinkedIn // AWS SBG BSIOTR [EXT]</a></li>
-          <li><a href="https://www.instagram.com/awssbg.bsiotr?knvt=MXBxMWdkN3A0cDlkbQ==" target="_blank"
-              rel="noopener noreferrer">Instagram // @awssbg.bsiotr [EXT]</a></li>
-          <li><a href="https://www.meetup.com/aws-sbg-at-jspm-bsiotr-pune" target="_blank"
-              rel="noopener noreferrer">Meetup // AWS SBG JSPM BSIOTR [EXT]</a></li>
-          <li><a href="mailto:awssbgbsiotr@gmail.com">Contact // awssbgbsiotr@gmail.com</a></li>
-        </ul>
-      </div>
-
-      <div class="footer-col col-actions">
-        <h4 class="col-subtitle">OPERATIONS</h4>
-        <div class="operations-box">
-          <div>SYS STATUS: OPERATIONAL</div>
-          <div>LOCALE: IST (+05:30)</div>
-          <div id="footer-live-clock">LOCAL TIME: --:--:--</div>
+      <div class="footer-col col-social-icons">
+        <div class="social-logos-row">
+          <a href="https://www.linkedin.com/company/aws-student-builder-group-at-bsiotr/" target="_blank"
+            rel="noopener noreferrer" class="footer-social-icon-btn" title="LinkedIn: AWS SBG BSIOTR" aria-label="LinkedIn">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="#0A66C2" aria-hidden="true">
+              <path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 10.9h2.82v8.37H6.46v-8.37M7.87 6.46a1.64 1.64 0 1 0 0 3.28 1.64 1.64 0 0 0 0-3.28z"/>
+            </svg>
+          </a>
+          <a href="https://www.instagram.com/awssbg.bsiotr?knvt=MXBxMWdkN3A0cDlkbQ==" target="_blank"
+            rel="noopener noreferrer" class="footer-social-icon-btn" title="Instagram: @awssbg.bsiotr" aria-label="Instagram">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="url(#igGradFooter)" aria-hidden="true">
+              <defs>
+                <linearGradient id="igGradFooter" x1="0%" y1="100%" x2="100%" y2="0%">
+                  <stop offset="0%" stop-color="#FFD600"/>
+                  <stop offset="50%" stop-color="#FF0069"/>
+                  <stop offset="100%" stop-color="#D300C5"/>
+                </linearGradient>
+              </defs>
+              <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+            </svg>
+          </a>
+          <a href="https://www.meetup.com/aws-sbg-at-jspm-bsiotr-pune" target="_blank"
+            rel="noopener noreferrer" class="footer-social-icon-btn" title="Meetup: AWS SBG JSPM BSIOTR" aria-label="Meetup">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="#ED1C40" aria-hidden="true">
+              <path d="M7.78 12.87c-.55-.66-.88-1.5-.88-2.43 0-2.07 1.68-3.75 3.75-3.75 1.4 0 2.62.77 3.25 1.9.63-1.13 1.85-1.9 3.25-1.9 2.07 0 3.75 1.68 3.75 3.75 0 .93-.33 1.77-.88 2.43.34.47.54 1.05.54 1.67 0 1.52-1.23 2.75-2.75 2.75-.84 0-1.59-.38-2.09-.97-.5.59-1.25.97-2.09.97-.84 0-1.59-.38-2.09-.97-.5.59-1.25.97-2.09.97-1.52 0-2.75-1.23-2.75-2.75 0-.62.2-1.2.54-1.67z"/>
+            </svg>
+          </a>
+          <a href="mailto:awssbgbsiotr@gmail.com" class="footer-social-icon-btn" title="Contact Email: awssbgbsiotr@gmail.com" aria-label="Email">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="#EA4335" aria-hidden="true">
+              <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+            </svg>
+          </a>
         </div>
-        <button class="btn-brutalist btn-secondary w-full" id="btn-back-to-top">
-          [^] RETURN TO TOP
-        </button>
       </div>
     </div>
 
     <div class="footer-bottom-bar mono">
       <div class="bar-left">
         <span>© 2026 AWS STUDENT COMMUNITY DAY PUNE. ALL RIGHTS RESERVED.</span>
-      </div>
-      <div class="bar-center">
-        <span>THE INFRASTRUCTURE IS THE INTERFACE.</span>
-      </div>
-      <div class="bar-right">
-        <span>PUNE STUDENT BUILDER SPECIAL</span>
       </div>
     </div>
   </footer>

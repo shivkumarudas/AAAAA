@@ -219,7 +219,7 @@ export class ScheduleController {
     this.container.innerHTML = `
       <div class="schedule-section-wrapper">
         <div class="section-meta-header">
-          <span class="section-tag mono">(03) Conference Timeline</span>
+          <span class="section-tag mono">CONFERENCE TIMELINE</span>
           <h2 class="section-headline">08:00 AM to 05:30 PM. Every minute packed.</h2>
           <p class="section-sub">
             The official master schedule for AWS Student Community Day 2026 at Seasons 24, Wagholi, Pune. Featuring opening keynotes, technical deep-dives, community panels, and builder recognition.

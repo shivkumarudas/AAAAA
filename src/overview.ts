@@ -102,7 +102,7 @@ export class OverviewController {
         <!-- Section Metadata Header -->
         <div class="section-meta-header">
           <div class="overview-header-tagline mono">
-            <span class="bullet">[*]</span> (01) // EVENT ROADMAP & OVERVIEW
+            EVENT ROADMAP &amp; OVERVIEW
           </div>
           <h2 class="section-headline">BUILT FOR STUDENT BUILDERS.</h2>
           <p class="section-sub">

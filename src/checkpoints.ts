@@ -167,7 +167,7 @@ export class CheckpointsController {
     this.container.innerHTML = `
       <div class="checkpoints-section-wrapper">
         <div class="section-meta-header">
-          <span class="section-tag mono">[AWS SCD 2026] // ROADMAP</span>
+          <span class="section-tag mono">ROADMAP &amp; CHECKPOINTS</span>
           <h2 class="section-headline">From 127.0.0.1 to Global AI.</h2>
           <p class="section-sub">
             The five architectural checkpoints charting the student builder progression at AWS Student Community Day 2026 Pune.

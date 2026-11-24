@@ -120,7 +120,7 @@ export class EcosystemController {
     this.container.innerHTML = `
       <div class="ecosystem-section-wrapper">
         <div class="section-meta-header">
-          <span class="section-tag mono">[AWS SCD 2026] // ECOSYSTEM & PROTOCOLS</span>
+          <span class="section-tag mono">ECOSYSTEM &amp; FIELD PROTOCOLS</span>
           <h2 class="section-headline">Partners, Sponsors & Field Protocols.</h2>
           <p class="section-sub">
             Supported by premier cloud technology leaders and academic partners for AWS Student Community Day 2026.

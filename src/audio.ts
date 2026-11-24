@@ -64,6 +64,11 @@ class SoundManager {
     }
   }
 
+  public playHover(freq = 700, volume = 0.015) {
+    if (!this.enabled) return;
+    this.playClick(freq, volume);
+  }
+
   public playTypewriter(charFreq = 440) {
     if (!this.enabled) return;
     this.initContext();
@@ -173,6 +178,85 @@ class SoundManager {
     } catch {
       // fallback
       this.playClick(920, 0.05);
+    }
+  }
+
+  public playBusHorn() {
+    this.initContext();
+    if (!this.ctx) return;
+
+    try {
+      // Dual-tone pneumatic air horn: 370 Hz + 440 Hz
+      const t = this.ctx.currentTime;
+      const osc1 = this.ctx.createOscillator();
+      const osc2 = this.ctx.createOscillator();
+      const gain = this.ctx.createGain();
+
+      osc1.type = 'sawtooth';
+      osc2.type = 'triangle';
+      osc1.frequency.setValueAtTime(370, t);
+      osc2.frequency.setValueAtTime(440, t);
+
+      // Lowpass filter to give warm automotive horn character
+      const filter = this.ctx.createBiquadFilter();
+      filter.type = 'lowpass';
+      filter.frequency.setValueAtTime(1600, t);
+
+      // Two quick honks
+      gain.gain.setValueAtTime(0.0001, t);
+      gain.gain.linearRampToValueAtTime(0.12, t + 0.03);
+      gain.gain.setValueAtTime(0.12, t + 0.14);
+      gain.gain.linearRampToValueAtTime(0.0001, t + 0.17);
+
+      gain.gain.setValueAtTime(0.0001, t + 0.22);
+      gain.gain.linearRampToValueAtTime(0.14, t + 0.25);
+      gain.gain.setValueAtTime(0.14, t + 0.42);
+      gain.gain.exponentialRampToValueAtTime(0.0001, t + 0.48);
+
+      osc1.connect(filter);
+      osc2.connect(filter);
+      filter.connect(gain);
+      gain.connect(this.ctx.destination);
+
+      osc1.start(t);
+      osc2.start(t);
+      osc1.stop(t + 0.5);
+      osc2.stop(t + 0.5);
+    } catch {
+      this.playClick(400, 0.08);
+    }
+  }
+
+  public playMetroChime() {
+    this.initContext();
+    if (!this.ctx) return;
+
+    try {
+      // Pune Metro ascending 3-note chime: C5 (523Hz), E5 (659Hz), G5 (784Hz)
+      const notes = [523.25, 659.25, 783.99];
+      const startT = this.ctx.currentTime;
+
+      notes.forEach((freq, idx) => {
+        if (!this.ctx) return;
+        const noteT = startT + idx * 0.14;
+        const osc = this.ctx.createOscillator();
+        const gain = this.ctx.createGain();
+
+        osc.type = 'sine';
+        osc.frequency.setValueAtTime(freq, noteT);
+
+        gain.gain.setValueAtTime(0.0001, noteT);
+        gain.gain.linearRampToValueAtTime(0.09, noteT + 0.02);
+        gain.gain.exponentialRampToValueAtTime(0.0001, noteT + 0.35);
+
+        osc.connect(gain);
+        gain.connect(this.ctx.destination);
+
+        osc.start(noteT);
+        osc.stop(noteT + 0.36);
+      });
+    } catch {
+      this.playChirp(700, 0.15);
     }
   }
 }
