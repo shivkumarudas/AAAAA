@@ -10217,13 +10217,26 @@ html[data-theme="cyber"] .ticket-parameters-matrix {
 .footer-top-grid {
   max-width: 1400px;
   margin: 0 auto;
-  display: flex !important;
-  justify-content: space-between !important;
-  align-items: center !important;
-  flex-wrap: wrap !important;
-  gap: 28px !important;
-  padding-bottom: 24px !important;
+  display: grid !important;
+  grid-template-columns: 1.5fr 1fr 1.3fr !important;
+  gap: 48px !important;
+  align-items: start !important;
+  padding-bottom: 36px !important;
   border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
+}
+
+@media (max-width: 900px) {
+  .footer-top-grid {
+    grid-template-columns: 1fr 1fr !important;
+    gap: 32px !important;
+  }
+}
+
+@media (max-width: 640px) {
+  .footer-top-grid {
+    grid-template-columns: 1fr !important;
+    gap: 28px !important;
+  }
 }
 
 .footer-brand-text .col-title {
@@ -10238,11 +10251,89 @@ html[data-theme="cyber"] .ticket-parameters-matrix {
   font-weight: 700 !important;
 }
 
+.footer-desc {
+  font-size: 0.78rem !important;
+  color: #94A3B8 !important;
+  line-height: 1.6 !important;
+  margin: 12px 0 16px 0 !important;
+  max-width: 320px !important;
+}
+
+.footer-heading {
+  font-family: var(--font-display) !important;
+  font-size: 0.82rem !important;
+  font-weight: 800 !important;
+  letter-spacing: 0.06em !important;
+  color: var(--color-aws-orange) !important;
+  margin-bottom: 16px !important;
+  text-transform: uppercase !important;
+}
+
+.footer-nav-list {
+  list-style: none !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 10px !important;
+}
+
+.footer-nav-list a {
+  color: #CBD5E1 !important;
+  text-decoration: none !important;
+  font-size: 0.78rem !important;
+  transition: all 0.15s ease !important;
+  display: inline-block !important;
+}
+
+.footer-nav-list a:hover {
+  color: #FFFFFF !important;
+  transform: translateX(4px) !important;
+}
+
+.footer-info-block {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 10px !important;
+  font-size: 0.75rem !important;
+  line-height: 1.5 !important;
+}
+
+.info-row {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 2px !important;
+}
+
+.info-label {
+  font-size: 0.65rem !important;
+  font-weight: 800 !important;
+  color: #94A3B8 !important;
+  letter-spacing: 0.05em !important;
+}
+
+.info-val {
+  color: #E2E8F0 !important;
+  font-weight: 500 !important;
+}
+
+.footer-mail-link {
+  color: #00FF9D !important;
+  text-decoration: none !important;
+  font-weight: 600 !important;
+  transition: color 0.15s ease !important;
+}
+
+.footer-mail-link:hover {
+  color: #FFFFFF !important;
+  text-decoration: underline !important;
+}
+
 /* Minimalist Social Logos Row */
 .social-logos-row {
   display: flex;
   align-items: center;
-  gap: 14px;
+  gap: 12px;
   flex-wrap: wrap;
 }
 
@@ -10250,9 +10341,9 @@ html[data-theme="cyber"] .ticket-parameters-matrix {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 44px;
-  height: 44px;
-  border-radius: 12px;
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
   background: rgba(255, 255, 255, 0.05);
   border: 1px solid rgba(255, 255, 255, 0.12);
   transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
@@ -10261,38 +10352,38 @@ html[data-theme="cyber"] .ticket-parameters-matrix {
 }
 
 .footer-social-icon-btn:hover {
-  transform: translateY(-3px) scale(1.08);
+  transform: translateY(-2px) scale(1.08);
   background: rgba(255, 255, 255, 0.12);
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.4);
 }
 
 .footer-social-icon-btn[aria-label="LinkedIn"]:hover {
   border-color: #0A66C2;
-  box-shadow: 0 0 18px rgba(10, 102, 194, 0.45);
+  box-shadow: 0 0 16px rgba(10, 102, 194, 0.45);
 }
 
 .footer-social-icon-btn[aria-label="Instagram"]:hover {
   border-color: #FF0069;
-  box-shadow: 0 0 18px rgba(255, 0, 105, 0.45);
+  box-shadow: 0 0 16px rgba(255, 0, 105, 0.45);
 }
 
 .footer-social-icon-btn[aria-label="Meetup"]:hover {
   border-color: #ED1C40;
-  box-shadow: 0 0 18px rgba(237, 28, 64, 0.45);
+  box-shadow: 0 0 16px rgba(237, 28, 64, 0.45);
 }
 
 .footer-social-icon-btn[aria-label="Email"]:hover {
   border-color: #EA4335;
-  box-shadow: 0 0 18px rgba(234, 67, 53, 0.45);
+  box-shadow: 0 0 16px rgba(234, 67, 53, 0.45);
 }
 
 .footer-bottom-bar {
   max-width: 1400px;
-  margin: 32px auto 0 auto;
-  padding-top: 24px;
+  margin: 28px auto 0 auto;
+  padding-top: 20px;
   border-top: none !important;
-  color: #94A3B8 !important;
-  font-size: 0.76rem !important;
+  color: #64748B !important;
+  font-size: 0.72rem !important;
   display: flex !important;
   justify-content: center !important;
   text-align: center !important;
